@@ -1,9 +1,6 @@
 import { Routes } from '@angular/router';
 
 import { LayoutComponent } from "./theme/layout/layout.component";
-import { CompanyListComponent}  from "./pages/company-list/company-list.component";
-import { CompanyDetailComponent } from "./pages/company-detail/company-detail.component";
-import { CompanyYandexMapComponent } from './pages/company-yandex-map/company-yandex-map.component';
 
 export const routes: Routes = [
   {
@@ -17,15 +14,18 @@ export const routes: Routes = [
       },
       {
         path: 'list',
-        component: CompanyListComponent
+        loadChildren: () => import('./pages/company-list-page/company-list-page.module')
+          .then(m => m.CompanyListPageModule),
       },
       {
         path: 'detail/:id',
-        component: CompanyDetailComponent
+        loadChildren: () => import('./pages/company-detail-page/company-detail-page.module')
+          .then(m => m.CompanyDetailPageModule),
       },
       {
         path: 'map',
-        component: CompanyYandexMapComponent
+        loadChildren: () => import('./pages/company-yandex-map-page/company-yandex-map-page.module')
+          .then(m => m.CompanyYandexMapPageModule),
       }
     ]
   }
