@@ -1,0 +1,24 @@
+<form [formGroup]="filterForm" class="filter">
+  <input
+    formControlName="search"
+    placeholder="Найти компанию"
+    class="control">
+  <label class="label">
+    Тип компании
+    <select
+      formControlName="type"
+      class="control control--select"
+    >
+      <option *ngFor="let state of states" [ngValue]="state">
+        {{ state.abbrev }}
+      </option>
+    </select>
+  </label>
+  <label class="label">
+    Вид деятельности
+    <select
+      formControlName="industry"
+      class="control control--select"
+    ></select>
+  </label>
+</form>

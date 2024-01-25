@@ -1,0 +1,29 @@
+.sort-method {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  gap: 5px;
+
+  &__order-icon, .order-icon svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  &__order-icon svg path {
+    fill: white;
+  }
+
+  &__name {
+    font-size: 18px;
+    user-select: none;
+    color: #828282;
+
+    &--select {
+      color: white;
+    }
+  }
+
+  &__name:hover {
+    color: white;
+  }
+}

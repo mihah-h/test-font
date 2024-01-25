@@ -1,0 +1,25 @@
+<header class="header">
+  <div class="header__container">
+    <div class="header__padding-container">
+      <a
+        routerLink="/"
+        class="header__logo logo link"
+      >
+        <p class="logo__text">Companies</p>
+      </a>
+      <nav class="header__navigation">
+        <ul class="header__navigation-list">
+          @for (navigationItem of navigation; track navigationItem.id) {
+            <li>
+              <a
+                [routerLink]="navigationItem.link"
+                routerLinkActive="header__navigation-list-link--active"
+                class="header__navigation-list-link link"
+              >{{navigationItem.title}}</a>
+            </li>
+          }
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>

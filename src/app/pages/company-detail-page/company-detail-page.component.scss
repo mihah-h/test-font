@@ -1,0 +1,31 @@
+.company-detail-page {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  padding: 36px 30px;
+
+  &__logo {
+    height: 250px;
+  }
+
+  &__text-block {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  &__name {
+    font-size: 36px;
+  }
+
+  &__info-block {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  &__info {
+    color: #828282;
+    font-size: 20px;
+  }
+}

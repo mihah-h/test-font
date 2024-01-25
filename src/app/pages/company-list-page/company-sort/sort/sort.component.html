@@ -1,0 +1,12 @@
+<ul class="sort">
+  @for (sortMethod of sortMethods; track sortMethod.id) {
+    <app-sort-method
+      [name]="sortMethod.name"
+      [isOrdinal]="sortMethod.isOrdinal"
+      [isSelect]="isSelectedSortMethod(sortMethod)"
+      [isAscendingSorting]="isAscendingSorting(sortMethod)"
+      [isDescendingSorting]="isDescendingSorting(sortMethod)"
+      (click)="changSortMethod(sortMethod)"
+    ></app-sort-method>
+  }
+</ul>

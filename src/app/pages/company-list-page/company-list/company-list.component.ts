@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Company } from '../../../core/services/companies.service';
 
 @Component({
   selector: 'app-company-list',
@@ -6,5 +7,6 @@ import { Component } from '@angular/core';
   styleUrl: './company-list.component.scss'
 })
 export class CompanyListComponent {
+  @Input() public companyList: Company[] = []
 
 }

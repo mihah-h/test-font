@@ -1,1 +1,22 @@
-<p>company-detail works!</p>
+<app-card>
+  @if (company$ | async; as company) {
+    <div class="company-detail-page">
+      <div>
+        <img
+          [src]="company.logo"
+          [alt]="company.business_name"
+          class="company-detail-page__logo"
+        >
+      </div>
+      <div class="company-detail-page__text-block">
+        <h1 class="company-detail-page__name">{{company.business_name}}</h1>
+        <div class="company-detail-page__info-block">
+          <p class="company-detail-page__info">{{company.industry}}</p>
+          <p class="company-detail-page__info">{{company.catch_phrase}} </p>
+          <p class="company-detail-page__info">{{company.phone_number}}</p>
+          <p class="company-detail-page__info">{{company.full_address}}</p>
+        </div>
+      </div>
+    </div>
+  }
+</app-card>

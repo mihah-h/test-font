@@ -1,1 +1,7 @@
-<p>company-list works!</p>
+<ul class="company-list">
+  @for (company of companyList; track company.id) {
+    <li>
+      <app-company-card [company]="company"/>
+    </li>
+  }
+</ul>

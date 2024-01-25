@@ -1,3 +1,7 @@
-<p>company-list works!</p>
-<app-company-list />
-
+<div class="company-list-page">
+  <app-company-filter/>
+  <div class="company-list-page__right-block">
+    <app-company-sort class="company-list-page__sort"/>
+    <app-company-list [companyList]="companyList"/>
+  </div>
+</div>

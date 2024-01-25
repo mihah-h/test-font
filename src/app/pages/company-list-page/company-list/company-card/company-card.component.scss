@@ -1,0 +1,49 @@
+.company-card {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 24px 16px;
+  height: 80px;
+
+  &__logo-block {
+    display: flex;
+    justify-content: center;
+    width: 350px;
+    height: 100%;
+  }
+
+  &__logo {
+
+  }
+
+  .company-card__right-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+  }
+
+  &__info-block {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  &__link {
+    color: white;
+    font-size: 22px;
+    font-weight: normal;
+    cursor: pointer;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline
+    }
+  }
+
+  &__info {
+    font-size: 16px;
+    color: #828282;
+
+  }
+}

@@ -1,0 +1,24 @@
+<app-card>
+  <div class="company-card">
+    <div class="company-card__logo-block">
+      <img
+        [src]="company.logo"
+        [alt]="company.business_name"
+        class="company-card__logo"
+      >
+    </div>
+    <div class="company-card__right-block">
+      <a [routerLink]="['/detail', company.uid]" class="company-card__link">
+        <h2>{{company.business_name}}</h2>
+      </a>
+      <div class="company-card__info-block">
+        <p
+          class="company-card__info"
+        >{{company.industry}}</p>
+        <p
+          class="company-card__info"
+        >{{company.type}}</p>
+      </div>
+    </div>
+  </div>
+</app-card>
