@@ -1,5 +1,9 @@
 <app-card>
   <aside class="company-filter">
-    <app-filter></app-filter>
+    <app-filter
+      [companyTypesList]="typesList"
+      [companyIndustryList]="industryList"
+      (changedFilterParameters)="onChangedFilterParameters($event)"
+    ></app-filter>
   </aside>
 </app-card>

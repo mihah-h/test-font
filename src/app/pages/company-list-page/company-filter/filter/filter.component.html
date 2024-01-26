@@ -1,6 +1,6 @@
 <form [formGroup]="filterForm" class="filter">
   <input
-    formControlName="search"
+    formControlName="business_name"
     placeholder="Найти компанию"
     class="control">
   <label class="label">
@@ -9,9 +9,11 @@
       formControlName="type"
       class="control control--select"
     >
-      <option *ngFor="let state of states" [ngValue]="state">
-        {{ state.abbrev }}
-      </option>
+      @for (companyType of companyTypesList; track companyType.id) {
+        <option [ngValue]="companyType.value">
+          {{ companyType.value }}
+        </option>
+      }
     </select>
   </label>
   <label class="label">
@@ -19,6 +21,12 @@
     <select
       formControlName="industry"
       class="control control--select"
-    ></select>
+    >
+      @for (companyIndustry of companyIndustryList; track companyIndustry.id) {
+        <option [ngValue]="companyIndustry.value">
+          {{ companyIndustry.value }}
+        </option>
+      }
+    </select>
   </label>
 </form>

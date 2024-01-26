@@ -17,13 +17,8 @@
     padding: 12px 20px;
   }
 
-
   &__logo {
     cursor: pointer;
-  }
-
-  &__navigation {
-
   }
 
   &__navigation-list {
@@ -46,19 +41,12 @@
   &__navigation-list-link:hover {
     color: white;
   }
-
-
 }
 
 .logo {
   font-weight: 900;
   font-size: 28px;
   color: white;
-
-  &__text {
-
-  }
-
 }
 
 .link {

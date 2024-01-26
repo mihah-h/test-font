@@ -1,38 +1,49 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  DestroyRef,
+  EventEmitter,
+  inject,
+  Input,
+  OnInit,
+  Output
+} from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+
+import { SelectOption } from '../../../../core/models/filter/selectOption';
+import { FilterParameters } from '../../../../core/models/filter/filterParameters';
+import { debounceTime } from 'rxjs';
 
 @Component({
   selector: 'app-filter',
   templateUrl: './filter.component.html',
-  styleUrl: './filter.component.scss'
+  styleUrl: './filter.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FilterComponent implements OnInit{
   filterForm!: FormGroup;
 
-  states = [
-    {name: 'Arizona', abbrev: 'AZ'},
-    {name: 'California', abbrev: 'CA'},
-    {name: 'Colorado', abbrev: 'CO'},
-    {name: 'New York', abbrev: 'NY'},
-    {name: 'Pennsylvania', abbrev: 'PA'},
-  ];
+  @Input() public companyTypesList: SelectOption[] = [];
+  @Input() public companyIndustryList: SelectOption[] = [];
+
+  @Output() public changedFilterParameters = new EventEmitter<FilterParameters>();
+
+  private destroyRef = inject(DestroyRef);
 
   ngOnInit(): void {
     this.filterForm = new FormGroup(
       {
-        search: new FormControl('ffff'),
-        type: new FormControl(this.states[0]),
-        industry: new FormControl(''),
+        business_name: new FormControl(''),
+        type: new FormControl('Any'),
+        industry: new FormControl('Any'),
       }
     );
 
-    // this.filterParamsForm.valueChanges.pipe(
-    //   startWith(this.filteringParamsForm.value),
-    //   debounceTime(600),
-    //   switchMap((formValue: FilteringParams) => this.updateQueryParams(formValue)),
-    //   takeUntil(this.destroy$)
-    // ).subscribe();
+    this.filterForm.valueChanges.pipe(
+      debounceTime(500),
+      takeUntilDestroyed(this.destroyRef)
+    ).subscribe((value) => this.changedFilterParameters.next(value));
+
   }
-
-
 }

@@ -4,6 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { CompaniesService } from './core/services/companies.service';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { FormsModule } from '@angular/forms';
+import { API_URL } from './provider';
 
 @Component({
   selector: 'app-root',
@@ -11,7 +12,10 @@ import { FormsModule } from '@angular/forms';
   imports: [RouterOutlet, HttpClientModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
-  providers: [CompaniesService]
+  providers: [
+    CompaniesService,
+    { provide: API_URL, useValue: 'https://random-data-api.com/api/company/random_company?size=100' }
+  ]
 })
 export class AppComponent {
 

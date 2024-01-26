@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { NgSelectModule } from '@ng-select/ng-select';
-import { Observable, switchMap } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
-import { CompaniesService, Company } from '../../core/services/companies.service';
+import { Observable, switchMap } from 'rxjs';
+
+import { CompaniesService } from '../../core/services/companies.service';
+import { Company } from '../../core/models/companies/company';
 
 @Component({
   selector: 'app-company-detail-page',
@@ -15,8 +16,7 @@ export class CompanyDetailPageComponent implements OnInit {
   constructor(
     private activatedRoute: ActivatedRoute,
     private companiesService: CompaniesService,
-  ) {
-  }
+  ) {}
 
 
 
@@ -27,7 +27,6 @@ export class CompanyDetailPageComponent implements OnInit {
           const companyId = params['id'];
           return this.companiesService.getCompany(companyId);
         }),
-        // takeUntil(this.destroy$)
       )
   }
 }

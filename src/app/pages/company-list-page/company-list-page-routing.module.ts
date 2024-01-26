@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
-import { CompanyListPageComponent } from './company-list-page.component';
 import { RouterModule, Routes } from '@angular/router';
+
+import { CompanyListPageComponent } from './company-list-page.component';
 
 const routes: Routes = [{
   path: '',
