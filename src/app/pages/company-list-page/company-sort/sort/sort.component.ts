@@ -30,17 +30,17 @@ export class SortComponent implements OnInit{
       return this.selectedSortMethod.value === sortMethod.value;
   }
 
-  public isAscendingSorting(sortMethod: SortMethod): boolean {
+  public isAscendingSorting(sortMethod: SortMethod) {
       return sortMethod.isOrdinal && this.isSelectedSortMethod(sortMethod)
           && this.selectedSortMethod.order === 'ascending';
   }
 
-  public isDescendingSorting(sortMethod: SortMethod): boolean {
+  public isDescendingSorting(sortMethod: SortMethod) {
       return sortMethod.isOrdinal && this.isSelectedSortMethod(sortMethod)
           && this.selectedSortMethod.order === 'descending';
   }
 
-  public changSortMethod(sortMethod: SortMethod): void {
+  public changSortMethod(sortMethod: SortMethod) {
       if (!this.isSelectedSortMethod(sortMethod) || sortMethod.isOrdinal) {
           const newSortOrder: Order = !sortMethod.isOrdinal ? 'indefinite'
               : this.isDescendingSorting(sortMethod) ? 'ascending' : 'descending';

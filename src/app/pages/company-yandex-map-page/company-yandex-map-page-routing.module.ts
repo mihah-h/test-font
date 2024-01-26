@@ -3,8 +3,6 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { CompanyYandexMapPageComponent } from './company-yandex-map-page.component';
 
-
-
 const routes: Routes = [{
   path: '',
   component: CompanyYandexMapPageComponent,
